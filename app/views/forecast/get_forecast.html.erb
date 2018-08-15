@@ -1,0 +1,20 @@
+<h2>Forecast for <%= @city_name %></h2>
+
+<% if @from_cache %>
+  <h3>..forecast grabbed from cache</h3>
+<% else %>
+  <h3>..forecast grabbed from API call, not cache</h3>
+<% end %>
+
+<%= link_to "Get another forecast", forecast_address_input_path %>
+
+<% @forecast_data.each do |date, forecasts| %>
+  <h3><%= date %></h3>
+  <ul>
+    <% forecasts.each do |forecast| %>
+      <li>
+        <h4><%= forecast[:time] %>: <%= forecast[:condition] %>, Low: <%= forecast[:temp_min].to_s %>&deg; / High: <%= forecast[:temp_max].to_s %>&deg;</h4>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

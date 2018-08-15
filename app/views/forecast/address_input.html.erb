@@ -1,0 +1,11 @@
+<% if flash[:error] %>
+  <div style="color: red;"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_for :address, url: forecast_get_forecast_path do |f| %>
+  <%= f.text_field :street, placeholder: "Street", required: true %><br>
+  <%= f.text_field :city, placeholder: "City", required: true %>
+  <%= f.select :state, Address::STATES, required: true %><br>
+  <%= f.text_field :zip, placeholder: "Zipcode", type: :integer, required: true %>
+  <%= f.submit "Get Forecast"%>
+<% end %>
