@@ -5,7 +5,7 @@
 
 **IMPORTANT**
 In order for the weather API call to work, you must enter the given API key into
-`ForecastController#get_weather` at variable `api_key`
+`ForecastController#get_weather` at variable `api_key` (on/near line 51)
 
 To get Rails caching to work in development mode, toggle caching with:
 `bin/rails dev:cache`
